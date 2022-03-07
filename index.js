@@ -80,4 +80,3 @@ tabs.forEach((tab) => {
 });
 
 tabList.addEventListener('keydown', changeTabFocus);
-// tabList.addEventListener('onClick', function);
