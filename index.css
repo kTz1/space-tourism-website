@@ -29,7 +29,7 @@
         --fs-800: 5rem;
         --fs-700: 2.5rem;
         --fs-600: 1.5rem;
-        --fs-500: 1.25rem
+        --fs-500: 1.25rem;
         --fs-400: 1rem;
     }
 }
@@ -96,8 +96,8 @@ body {
 }
 
 /* Make images easier to work with */
-img,
-picture {
+img:not([hidden]),
+picture:not([hidden]) {
     max-width: 100%;
     display: block;
 }
@@ -523,6 +523,26 @@ body {
     }
 }
 
+/* technology page */
+.technology {
+    background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
+/* Tablet */
+@media (min-width: 560px) {
+    .technology {
+        background-position: center center;
+        background-image: url(./assets/technology/background-technology-tablet.jpg);
+    }
+}
+
+/* Desktop */
+@media (min-width: 760px) {
+    .technology {
+        background-image: url(./assets/technology/background-technology-desktop.jpg);
+    }
+}
+
 /* ------------------------- */
 /*          Layout          */
 /* ----------------------- */
@@ -606,6 +626,37 @@ body {
     opacity: .5;
 }
 
+/* Tehnology Layout */
+.grid-container--technology {
+    --flow-space: 2rem;
+    grid-template-areas: 
+        'title'
+        'image'
+        'tabs'
+        'content';
+}
+
+.grid-container--technology > picture {
+    grid-area: image;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+}
+
+.grid-container--tehnology > .number-indicators {
+    grid-area: tabs;
+}
+
+.grid-container--technology > .technology-info {
+    grid-area: content;
+    margin-top: 2rem;
+}
+
+.numbered-title {
+    grid-area: title;
+}
+
+
 /* Tablet container */
 @media (min-width: 560px) {
     .numbered-title {
@@ -681,8 +732,17 @@ body {
         align-self: end;
         max-width: 90%;
     }
-}
 
-[hidden] {
-    display: none !important;
-  }
+    .grid-container--technology {
+        grid-template-columns: minmax(2rem, auto) minmax(2rem, auto) minmax(1rem, auto);
+        margin-left: 3rem;
+        justify-items: center;
+        grid-template-areas: 
+            'title title title'
+            'tabs content image';
+    }
+
+    .grid-container--technology > .number-indicators {
+        flex-direction: column;
+    }  
+}
