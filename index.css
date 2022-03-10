@@ -734,9 +734,9 @@ body {
     }
 
     .grid-container--technology {
-        grid-template-columns: minmax(2rem, auto) minmax(2rem, auto) minmax(1rem, auto);
+        grid-template-columns: minmax(2rem, 1fr) minmax(2rem, 1fr) minmax(2rem, 1fr);
         margin-left: 3rem;
-        justify-items: center;
+        justify-items: start;
         grid-template-areas: 
             'title title title'
             'tabs content image';
@@ -745,4 +745,8 @@ body {
     .grid-container--technology > .number-indicators {
         flex-direction: column;
     }  
+
+    .grid-container--technology > .number-indicators {
+        justify-self: center;
+    }
 }
